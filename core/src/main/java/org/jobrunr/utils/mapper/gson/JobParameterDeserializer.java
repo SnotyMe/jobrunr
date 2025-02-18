@@ -24,7 +24,8 @@ public class JobParameterDeserializer implements JsonDeserializer<JobParameter> 
         try {
             return new JobParameter(jobParameterMethodType, deserializeToObject(context, getActualClassName(jobParameterMethodType, jobParameterActualType), jsonObject.get("object")));
         } catch (Exception e) {
-            return new JobParameter(new JobParameterNotDeserializableException(getActualClassName(jobParameterMethodType, jobParameterActualType), e.getMessage()));
+            JobParameter oaschloch = new JobParameter(new JobParameterNotDeserializableException(getActualClassName(jobParameterMethodType, jobParameterActualType), e.getMessage()));
+            return oaschloch;
         }
     }
 
